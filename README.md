@@ -1,6 +1,6 @@
 # Salesforce Senior Coding Challenge
 
-Thank you for shortlisting my profile for this round of interview! I really feel that the task was well-thought. Overall it was fun for me.
+Thank you for shortlisting my profile for this round of interview! I really feel that the task was well-thought. Overall it was fun for me. I look forward to meeting you and having a discussion on the overall solution. 
 
 ### Considerations while testing the code:
 
@@ -10,6 +10,6 @@ Thank you for shortlisting my profile for this round of interview! I really feel
 ### Limitations/Assumptions:
 
 * The order record is always updated with a flag 'Sent to NPS?' that indicates if the record details are already sent to NPS. This is done to avoid sending duplicate emails to the customers. The assumption here is that once the record is fulfilled, some feature will stop allowing changes to its status. 
-* This assumption leads to a limitation which says that if the order status is 'fulfilled' for the first time, the record will be sent to the NPS system by making the callout. However, if after that the status is changed to some other value and again updated to 'Fulfilled', it won't be sent to the NPS for the second time. 
+* This assumption leads to a limitation that if the order status is 'fulfilled' for the first time, the record will be sent to the NPS system by making the callout. However, if after that the status is changed to some other value and again updated to 'Fulfilled', it won't be sent to the NPS for the second time.
 
 
