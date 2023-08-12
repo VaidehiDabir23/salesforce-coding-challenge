@@ -24,4 +24,7 @@ global class NPSHttpCalloutMock implements HttpCalloutMock {
       return response; 
    }
 
+   /*TODO
+      This class can be written in more elegant manner to produce responses with multiple code status
+   */
 }

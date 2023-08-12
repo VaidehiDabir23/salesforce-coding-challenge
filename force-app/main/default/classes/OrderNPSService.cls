@@ -80,7 +80,7 @@ public With Sharing class OrderNPSService {
     public static void updateOrders(Map<Id, Order> retrievedOrdersMap) {
         List<Order> ordersToUpdate = new List<Order>();
         for (Order order : retrievedOrdersMap.values()) {
-            order.Sent_to_NPS__c = true;
+            order.Sent_to_NPS__c = true; //This field is updated to indicate that the order record is sent to the NPS.
             ordersToUpdate.add(order);
         }
         if (!ordersToUpdate.isEmpty()) {

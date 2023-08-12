@@ -1,40 +1,15 @@
 # Salesforce Senior Coding Challenge
 
-We appreciate you taking the time to participate and submit a coding challenge! 🥳
+Thank you for shortlisting my profile for this round of interview! I really feel that the task was well-thought. Overall it was fun for me.
 
-In the next step we would like you to implement a simple Invocable Apex Action to be used by your Admin colleagues for a Flow. They need to do HTTP callouts to a NPS Service, whenever an Order got fulfilled. Below you will find a list of tasks and optional bonus points required for completing the challenge.
+### Considerations while testing the code:
 
-**🚀 This is a template repo, just use the green button to create your own copy and get started!**
+* Please assign permission set 'NPS Integration Permission Set' in the package to the user with which the testing is being done.
+* While changing the status of the opportunity to fulfilled, please check the value of the 'Sent to NPS?' field on order. It should be false or unchecked to make the callout to the NPS system. For this reason, it is currently kept editable for the user assigned with the permission set 'NPS Integration Permission Set'. 
 
-### Invocable:
+### Limitations/Assumptions:
 
-* accepts the Order Record Ids as Input Parameter
-* queries the required records to get the Bill To E-Mail Address (`Contact.Email`) and OrderNumber (`Order.OrderNumber`)
-* sends the data to the NPS API
-* add a basic Flow, that executes your Action whenever an Order Status is changed to `Fulfilled`
+* The order record is always updated with a flag 'Sent to NPS?' that indicates if the record details are already sent to NPS. This is done to avoid sending duplicate emails to the customers. The assumption here is that once the record is fulfilled, some feature will stop allowing changes to its status. 
+* This assumption leads to a limitation which says that if the order status is 'fulfilled' for the first time, the record will be sent to the NPS system by making the callout. However, if after that the status is changed to some other value and again updated to 'Fulfilled', it won't be sent to the NPS for the second time. 
 
-### The Mock NPS API:
 
-* Hosted at https://salesforce-coding-challenge.herokuapp.com
-* ✨[API Documentation](https://thermondo.github.io/salesforce-coding-challenge/)
-* 🔐 uses HTTP Basic Auth, username: `tmondo`, password: `Noy84LRpYvMZuETB`
-
-### ⚠️ Must Haves:
-
-* [ ] use `sfdx` and `git`, commit all code and metadata needed (so we can test with a scratch org)
-* [ ] write good meaningful unit tests
-* [ ] properly separate concerns
-* [ ] make a list of limitations/possible problems
-
-### ✨ Bonus Points:
-
-* [ ] layer your Code (use [apex-common](https://github.com/apex-enterprise-patterns/fflib-apex-common) if you like)
-* [ ] use Inversion of Control to write true unit tests and not integration tests
-* [ ] make sure customers don't get duplicate emails
-* [ ] think of error handling and return them to the Flow for the Admins to handle
-
-### What if I don't finish?
-
-Finishing these tasks should take about 2-3 hours, but we are all about **'quality > speed'**, so it's better to deliver a clean MVP and leave some TODOs open.
-
-Try to produce something that is at least minimally functional. Part of the exercise is to see what you prioritize first when you have a limited amount of time. For any unfinished tasks, please do add `TODO` comments to your code with a short explanation. You will be given an opportunity later to go into more detail and explain how you would go about finishing those tasks.
